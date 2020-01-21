@@ -1,0 +1,6 @@
+
+Get the solr server URL by running these commands in the same shell:
+
+  export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ template "solr.service-name" . }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+ 
+ echo http://$SERVICE_IP:{{ .Values.port }}
